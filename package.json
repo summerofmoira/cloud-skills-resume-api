@@ -1,0 +1,10 @@
+{
+  "name": "cloud-skills-resume-api",
+  "version": "1.0.0",
+  "description": "Lambda function for the Cloud Skills workshop",
+  "main": "index.js",
+  "dependencies": {
+    "aws-sdk": "^2.1390.0"
+  }
+}
+

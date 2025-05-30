@@ -11,6 +11,7 @@ jobs:
 
     env:
       FIRST_NAME: Guillermo
+      FIRST_NAME_LOWER: ${{ toJSON(env.FIRSTNAME) | tolower }}
 
     steps:
       - name: Checkout code
@@ -45,7 +46,7 @@ jobs:
       - name: Deploy SAM app
         run: |
           sam deploy \
-            --stack-name resume-experience-${{ env.FIRST_NAME }} \
+            --stack-name resume-experience-${{ env.FIRST_NAME_LOWER }} \
             --capabilities CAPABILITY_IAM \
             --no-confirm-changeset \
             --no-fail-on-empty-changeset \

@@ -26,10 +26,10 @@ Resources:
       CodeUri: .
       Environment:
         Variables:
-          TABLE_NAME: resume-experience-guillermo   # Replace "guillermo" with your name
+          TABLE_NAME: resume-experience-Moira   # Replace "guillermo" with your name
       Policies:
         - DynamoDBReadPolicy:
-            TableName: resume-experience-guillermo  # Replace "guillermo" with your name
+            TableName: resume-experience-Moira  # Replace "guillermo" with your name
       Events:
         GetExperience:
           Type: Api

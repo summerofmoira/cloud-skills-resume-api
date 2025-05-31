@@ -13,15 +13,4 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       Handler: lambda.handler
-      CodeUri: .
-      Events:
-        ApiRoot:
-          Type: Api
-          Properties:
-            Path: /
-            Method: ANY
-        ApiProxy:
-          Type: Api
-          Properties:
-            Path: /{proxy+}
-            Method: ANY
+      CodeUri: index.js

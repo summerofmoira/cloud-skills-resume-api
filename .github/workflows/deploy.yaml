@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      FIRST_NAME_LOWER: guillermo
+      FIRST_NAME_LOWER: Moira
 
     steps:
       - name: Checkout code

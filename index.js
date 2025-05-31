@@ -7,7 +7,10 @@ exports.handler = async () => {
     const data = await db.scan({ TableName: TABLE_NAME }).promise();
     return {
       statusCode: 200,
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*"
+      },
       body: JSON.stringify(data.Items),
     };
   } catch (error) {

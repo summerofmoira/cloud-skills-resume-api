@@ -35,6 +35,6 @@ Resources:
           Type: Api
           Properties:
             RestApiId: !Ref MyResumeApi
-            Path: /experience
+            Path: /experiences
             Method: GET
 

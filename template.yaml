@@ -1,6 +1,6 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
-Description: Cloud skills resume function
+Description: Cloud Skills Resume API Function
 
 Globals:
   Function:
@@ -12,5 +12,18 @@ Resources:
   ResumeApiFunction:
     Type: AWS::Serverless::Function
     Properties:
-      Handler: lambda.handler
-      CodeUri: index.js
+      Handler: index.handler        # Assuming your code is in index.js
+      CodeUri: .                    # Path to your Lambda code folder
+      Environment:
+        Variables:
+          TABLE_NAME: resume-experience-guillermo  # Adjust per student or make dynamic later
+      Policies:
+        - DynamoDBReadPolicy:
+            TableName: resume-experience-guillermo # Grant Lambda read access to this table
+      Events:
+        GetExperience:
+          Type: Api
+          Properties:
+            Path: /experiences
+            Method: GET
+

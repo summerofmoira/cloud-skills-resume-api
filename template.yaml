@@ -9,21 +9,32 @@ Globals:
     Runtime: nodejs18.x
 
 Resources:
+
+  MyResumeApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      StageName: Prod
+      Cors:
+        AllowMethods: "'GET,OPTIONS'"
+        AllowHeaders: "'Content-Type,Authorization'"
+        AllowOrigin: "'*'"
+
   ResumeApiFunction:
     Type: AWS::Serverless::Function
     Properties:
-      Handler: index.handler        # Assuming your code is in index.js
-      CodeUri: .                    # Path to your Lambda code folder
+      Handler: index.handler
+      CodeUri: .
       Environment:
         Variables:
-          TABLE_NAME: resume-experience-guillermo  # Adjust per student or make dynamic later
+          TABLE_NAME: resume-experience-guillermo   # Replace "guillermo" with your name
       Policies:
         - DynamoDBReadPolicy:
-            TableName: resume-experience-guillermo # Grant Lambda read access to this table
+            TableName: resume-experience-guillermo  # Replace "guillermo" with your name
       Events:
         GetExperience:
           Type: Api
           Properties:
-            Path: /experiences
+            RestApiId: !Ref MyResumeApi
+            Path: /experience
             Method: GET
 

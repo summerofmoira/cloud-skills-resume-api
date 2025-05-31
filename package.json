@@ -4,7 +4,11 @@
   "description": "Lambda function for the Cloud Skills workshop",
   "main": "index.js",
   "dependencies": {
-    "aws-sdk": "^2.1390.0"
+    "aws-sdk": "^2.1390.0",
+    "jest": "^29.7.0"
+  },
+  "scripts": {
+    "ci": "npm install",
+    "test": "jest"
   }
 }
-

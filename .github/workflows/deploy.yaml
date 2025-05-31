@@ -10,8 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      FIRST_NAME: Guillermo
-      FIRST_NAME_LOWER: ${{ toJSON(env.FIRSTNAME) | tolower }}
+      FIRST_NAME_LOWER: guillermo
 
     steps:
       - name: Checkout code
